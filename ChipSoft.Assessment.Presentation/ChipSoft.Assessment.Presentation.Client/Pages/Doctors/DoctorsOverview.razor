@@ -1,0 +1,55 @@
+@page "/doctors"
+@rendermode InteractiveAuto
+
+<h3>Doctors</h3>
+
+@if (Errors?.Any() == true)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var err in Errors)
+            {
+                <li>@err</li>
+            }
+        </ul>
+    </div>
+}
+
+<button class="btn btn-primary" @onclick="NavigateToAdd">Add doctor</button>
+
+@if (Doctors is null)
+{
+    <p>Loading...</p>
+}
+else if (!Doctors.Any())
+{
+    <p>No doctors found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Date of birth</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>License</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var d in Doctors)
+            {
+                <tr>
+                    <td>@d.FirstName</td>
+                    <td>@d.LastName</td>
+                    <td>@d.DateOfBirth.ToString()</td>
+                    <td>@d.Gender.ToString()</td>
+                    <td>@d.Email</td>
+                    <td>@d.LicenseNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

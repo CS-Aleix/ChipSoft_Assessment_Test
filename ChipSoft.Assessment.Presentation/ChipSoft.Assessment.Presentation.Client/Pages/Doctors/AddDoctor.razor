@@ -1,0 +1,58 @@
+@page "/doctors/add"
+@rendermode InteractiveAuto
+
+<h3>Add Doctor</h3>
+
+@if (Errors?.Any() == true)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var err in Errors)
+            {
+                <li>@err</li>
+            }
+        </ul>
+    </div>
+}
+
+<EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-2">
+        <label class="form-label">First name</label>
+        <InputText class="form-control" @bind-Value="Model.FirstName" />
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">Last name</label>
+        <InputText class="form-control" @bind-Value="Model.LastName" />
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">Date of birth</label>
+        <InputDate class="form-control" @bind-Value="Model.DateOfBirth" />
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">Gender</label>
+        <InputSelect class="form-control" @bind-Value="Model.Gender">
+            <option value="">-- select --</option>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+            <option value="2">Other</option>
+        </InputSelect>
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">Email</label>
+        <InputText class="form-control" @bind-Value="Model.Email" />
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">License number</label>
+        <InputText class="form-control" @bind-Value="Model.LicenseNumber" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Create</button>
+</EditForm>

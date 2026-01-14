@@ -1,0 +1,21 @@
+﻿@page "/"
+@rendermode InteractiveAuto
+
+<PageTitle>Home</PageTitle>
+
+<h1>ChipSoft Consultation Overview</h1>
+
+<p>Welcome to the appointment planner app!</p>
+
+<hr />
+
+<h4>General Options:</h4>
+
+<button class="btn btn-danger" @onclick="ResetAndReseedAsync" disabled="@isBusy">
+    @(isBusy ? "Resetting..." : "Reset and Reseed Database")
+</button>
+
+@if (!string.IsNullOrWhiteSpace(ReturnMessage))
+{
+    <div class="mt-2 alert @(HasError ? "alert-danger" : "alert-success")">@ReturnMessage</div>
+}

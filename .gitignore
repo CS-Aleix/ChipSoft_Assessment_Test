@@ -1,0 +1,118 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+# Visual Studio, Rider, VSCode
+.vs/
+.vscode/
+.idea/
+
+# Build output
+bin/
+obj/
+**/bin/
+**/obj/
+
+# User-specific
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+
+# Rider
+*.sln.iml
+
+# Dotnet user secrets
+secrets.json
+secrets.json.*
+
+# Local DB (SQLite) files - keep temp DB files out of source control
+*.db
+*.sqlite
+*.sqlite3
+localdb.*
+ChipSoft.Assessment.Presentation/ChipSoft.Assessment.Presentation/temp.db
+ChipSoft.Assessment.Presentation/ChipSoft.Assessment.Presentation/temp.db-shm
+ChipSoft.Assessment.Presentation/ChipSoft.Assessment.Presentation/temp.db-wal
+
+# Logs
+*.log
+logs/
+
+# Publish
+publish/
+*.Publish.xml
+
+# Generated files
+**/*.g.dart
+**/Generated/**
+
+# Resharper
+_ReSharper*/
+*.ReSharper.User
+
+# Test result files
+TestResults/
+*.trx
+
+# Coverage
+coverage.*
+*.coverage
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# JetBrains Rider local history
+.idea/.idea.LocalHistory/
+
+# Certificates
+*.pfx
+*.cer
+
+# Binaries
+*.dll
+*.exe
+
+# Lint/format tool state
+.dotnet-format/*
+
+# npm / node
+node_modules/
+
+# WASM/Blazor published static files cache
+wwwroot/_framework/
+wwwroot/_content/
+
+# Optional: Git LFS pointer files
+.git/lfs/objects
+
+# Keep editorconfig and gitattributes
+!.editorconfig
+!.gitattributes
+
+# Project-specific debug folders (included above but explicit paths kept for clarity)
+ChipSoft.Assessment.Application/bin/Debug/
+ChipSoft.Assessment.Application/obj/
+ChipSoft.Assessment.Tests/bin/Debug/
+ChipSoft.Assessment.Tests/obj/
+ChipSoft.Assessment.Presentation/ChipSoft.Assessment.Presentation/bin/Debug/
+ChipSoft.Assessment.Presentation/ChipSoft.Assessment.Presentation/obj/
+ChipSoft.Assessment.Presentation/ChipSoft.Assessment.Presentation.Client/bin/Debug/
+ChipSoft.Assessment.Presentation/ChipSoft.Assessment.Presentation.Client/obj/
+ChipSoft.Assessment.Domain/obj/Debug/
+ChipSoft.Assessment.Domain/obj/
+ChipSoft.Assessment.Domain/bin/Debug/
+ChipSoft.Assessment.Infrastructure/bin/Debug/
+ChipSoft.Assessment.Infrastructure/obj/
+
+# Allow accidental commits of Visual Studio database
+*.mdf
+*.ldf

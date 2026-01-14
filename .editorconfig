@@ -1,0 +1,53 @@
+root = true
+
+[*]
+end_of_line = crlf
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{md,mdx,txt}]
+trim_trailing_whitespace = false
+
+[*.cs]
+indent_style = space
+indent_size = 4
+# Use explicit type for built-in types (int, string, etc.)
+csharp_style_var_for_built_in_types = false:suggestion
+csharp_style_var_elsewhere = false:suggestion
+csharp_style_var_when_type_is_apparent = false:suggestion
+
+# Qualify this. Prefer no qualification in most cases to keep code concise
+dotnet_style_qualification_for_field = false:suggestion
+dotnet_style_qualification_for_property = false:suggestion
+dotnet_style_qualification_for_method = false:suggestion
+dotnet_style_qualification_for_event = false:suggestion
+
+# Expression preferences
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+csharp_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+
+# New-line preferences
+csharp_new_line_before_open_brace = all
+
+# Prefer expression-bodied members where appropriate
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_properties = when_on_single_line:suggestion
+
+# Naming conventions: private fields start with underscore and camelCase
+dotnet_naming_rule.private_fields_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_underscore.style = underscore_style
+dotnet_naming_rule.private_fields_underscore.severity = suggestion
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_symbols.private_fields.required_modifiers = readonly
+
+dotnet_naming_style.underscore_style.required_prefix = _
+dotnet_naming_style.underscore_style.capitalization = camel_case
+
+# File ordering
+dotnet_sort_system_directives_first = true
+
+# Treat analyzers as suggestions by default
+dotnet_analyzer_diagnostic.severity = suggestion

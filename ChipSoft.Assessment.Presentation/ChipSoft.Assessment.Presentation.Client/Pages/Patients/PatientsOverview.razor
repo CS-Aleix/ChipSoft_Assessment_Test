@@ -1,0 +1,51 @@
+@page "/patients"
+@rendermode InteractiveAuto
+
+<h3>Patients</h3>
+
+@if (Errors?.Any() == true)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var err in Errors)
+            {
+                <li>@err</li>
+            }
+        </ul>
+    </div>
+}
+
+<button class="btn btn-primary" @onclick="NavigateToAdd">Add patient</button>
+
+@if (Patients is null)
+{
+    <p>Loading...</p>
+}
+else if (!Patients.Any())
+{
+    <p>No patients found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Date of birth</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Patients)
+            {
+                <tr>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                    <td>@p.DateOfBirth.ToString()</td>
+                    <td>@p.Gender.ToString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

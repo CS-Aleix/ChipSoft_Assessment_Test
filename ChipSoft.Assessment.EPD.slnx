@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="ChipSoft.Assessment.Application/ChipSoft.Assessment.Application.csproj" />
+  <Project Path="ChipSoft.Assessment.Domain/ChipSoft.Assessment.Domain.csproj" />
+  <Project Path="ChipSoft.Assessment.Infrastructure/ChipSoft.Assessment.Infrastructure.csproj" />
+  <Project Path="ChipSoft.Assessment.Presentation/ChipSoft.Assessment.Presentation.Client/ChipSoft.Assessment.Presentation.Client.csproj" Id="0a423094-5acb-466f-b993-6629034ad47c" />
+  <Project Path="ChipSoft.Assessment.Presentation/ChipSoft.Assessment.Presentation/ChipSoft.Assessment.Presentation.csproj" Id="6357ecd1-3d72-4182-a38d-56b9c2e3a26a" />
+  <Project Path="ChipSoft.Assessment.Tests/ChipSoft.Assessment.Tests.csproj" />
+</Solution>

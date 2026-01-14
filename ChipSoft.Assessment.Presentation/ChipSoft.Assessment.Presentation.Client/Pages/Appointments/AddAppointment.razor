@@ -1,0 +1,89 @@
+@page "/appointments/add"
+@rendermode InteractiveAuto
+
+<h3>Add Appointment</h3>
+
+@if (Errors?.Any() == true)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var err in Errors)
+            {
+                <li>@err</li>
+            }
+        </ul>
+    </div>
+}
+
+<EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-2">
+        <label class="form-label">Start time</label>
+        <InputDate DateFormat="yyyy-MM-dd" class="form-control" @bind-Value="StartDate" />
+        <InputText class="form-control mt-1" @bind-Value="StartTime" placeholder="HH:mm" />
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">End time</label>
+        <InputDate DateFormat="yyyy-MM-dd" class="form-control" @bind-Value="EndDate" />
+        <InputText class="form-control mt-1" @bind-Value="EndTime" placeholder="HH:mm" />
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">Reason</label>
+        <InputText class="form-control" @bind-Value="Model.Reason" />
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">Treatment type</label>
+        <InputSelect class="form-control" @bind-Value="Model.TreatmentType">
+            <option value="">-- select --</option>
+            @if (AvailableTreatmentTypes is not null)
+            {
+                @foreach (var tt in AvailableTreatmentTypes)
+                {
+                    <option value="@tt">@tt.ToString()</option>
+                }
+            }
+        </InputSelect>
+    </div>
+
+    <fieldset class="border p-2">
+        <legend class="w-auto">Patient</legend>
+        <div class="mb-2">
+            <label class="form-label">Select patient</label>
+            @* <InputSelect class="form-control" Value="Model" ValueChanged="OnPatientSelected" ValueExpression="@(() => Model.Patient.Id)"> *@
+            <InputSelect class="form-control" @bind-Value="SelectedPatientId">
+                    <option value="">-- select --</option>
+                    @if (Patients is not null)
+                    {
+                        @foreach (var p in Patients)
+                        {
+                            <option value="@p.Id">@p.FirstName @p.LastName (@p.DateOfBirth.ToString())</option>
+                        }
+                    }
+            </InputSelect>
+        </div>
+    </fieldset>
+
+    <fieldset class="border p-2 mt-3">
+        <legend class="w-auto">Doctor</legend>
+        <div class="mb-2">
+            <label class="form-label">Select doctor</label>
+            <InputSelect class="form-control" @bind-Value="SelectedDoctorId">
+                <option value="">-- select --</option>
+                @if (Doctors is not null)
+                {
+                    @foreach (var d in Doctors)
+                    {
+                        <option value="@d.Id">@d.FirstName @d.LastName (@d.LicenseNumber)</option>
+                    }
+                }
+            </InputSelect>
+        </div>
+    </fieldset>
+
+    <button class="btn btn-primary mt-3" type="submit">Create</button>
+</EditForm>

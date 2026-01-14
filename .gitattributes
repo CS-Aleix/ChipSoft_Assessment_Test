@@ -1,0 +1,27 @@
+# Ensure consistent behavior across platforms
+* text=auto
+
+# Force CRLF for Windows line endings in text files
+*.cs text eol=crlf
+*.slnx text eol=crlf
+*.csproj text eol=crlf
+*.props text eol=crlf
+*.targets text eol=crlf
+
+# Markdown handling
+*.md text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+
+# Ensure Visual Studio files are treated as binary
+*.vspscc binary
+*.vssscc binary
+
+# Lock LFS tracked files if used (example)
+# *.sqlite filter=lfs diff=lfs merge=lfs -text

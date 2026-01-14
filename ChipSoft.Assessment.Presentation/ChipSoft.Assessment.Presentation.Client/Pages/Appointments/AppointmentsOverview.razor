@@ -1,0 +1,53 @@
+@page "/appointments"
+@rendermode InteractiveAuto
+
+<h3>Appointments</h3>
+
+@if (Errors?.Any() == true)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var err in Errors)
+            {
+                <li>@err</li>
+            }
+        </ul>
+    </div>
+}
+
+<button class="btn btn-primary" @onclick="NavigateToAdd">Add appointment</button>
+
+@if (Appointments is null)
+{
+    <p>Loading...</p>
+}
+else if (!Appointments.Any())
+{
+    <p>No appointments found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Start</th>
+                <th>End</th>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in Appointments)
+            {
+                <tr>
+                    <td>@a.StartTime.ToString()</td>
+                    <td>@a.EndTime.ToString()</td>
+                    <td>@a.PatientName</td>
+                    <td>@a.DoctorName</td>
+                    <td>@a.Reason</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using ChipSoft.Assessment.Application.DTOs;
 using ChipSoft.Assessment.Application.Interfaces.Repositories;
 using ChipSoft.Assessment.Application.Interfaces.Services;

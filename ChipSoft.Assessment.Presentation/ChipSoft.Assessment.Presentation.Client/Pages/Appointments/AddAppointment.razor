@@ -54,7 +54,6 @@
         <legend class="w-auto">Patient</legend>
         <div class="mb-2">
             <label class="form-label">Select patient</label>
-            @* <InputSelect class="form-control" Value="Model" ValueChanged="OnPatientSelected" ValueExpression="@(() => Model.Patient.Id)"> *@
             <InputSelect class="form-control" @bind-Value="SelectedPatientId">
                     <option value="">-- select --</option>
                     @if (Patients is not null)

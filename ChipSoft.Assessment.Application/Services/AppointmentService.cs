@@ -16,8 +16,7 @@ public class AppointmentService(IAppointmentRepository appointmentRepository) : 
 
         Appointment appointment = MapToAppointment(appointmentDto);
 
-        var overlappingAppointments = await appointmentRepository.GetOtherAppointmentsByDate(appointment, cancellationToken);
-        var result = AppointmentValidator.Validate(appointment, overlappingAppointments.Data ?? []);
+        var result = AppointmentValidator.Validate(appointment);
 
         if (!result.IsSuccess)
         {

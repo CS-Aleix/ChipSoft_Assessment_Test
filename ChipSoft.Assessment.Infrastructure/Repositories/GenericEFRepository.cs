@@ -43,5 +43,4 @@ public class GenericEFRepository
     //{
     //    return new Result<T>();
     //}
-
 }

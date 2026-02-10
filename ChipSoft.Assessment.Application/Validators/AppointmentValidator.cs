@@ -6,7 +6,7 @@ namespace ChipSoft.Assessment.Application.Validators;
 
 public class AppointmentValidator
 {
-    internal static Result<Appointment> Validate(Appointment appointment, IEnumerable<Appointment> existingAppointments)
+    internal static Result<Appointment> Validate(Appointment appointment)
     {
         if (appointment is null)
         {

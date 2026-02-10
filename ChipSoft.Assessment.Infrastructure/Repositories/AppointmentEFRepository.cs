@@ -8,13 +8,8 @@ namespace ChipSoft.Assessment.Infrastructure.Repositories;
 
 public class AppointmentEFRepository : IAppointmentRepository
 {
-    public AppointmentEFRepository(AppDbContext dbContext) 
+    public AppointmentEFRepository(AppDbContext dbContext)
     {
-    }
-
-    public async Task<Result<List<Appointment>>> GetOtherAppointmentsByDate(Appointment appointment, CancellationToken cancellationToken = default)
-    {
-        return new Result<List<Appointment>>();
     }
 
     Task<Result<Appointment>> IAppointmentRepository.AddAsync(Appointment appointment, CancellationToken cancellationToken) => throw new NotImplementedException();

@@ -3,6 +3,7 @@
 Welcome and thank you for your interest in ChipSoft!
 
 This repository contains a sample Blazor (Server + WebAssembly) application used for assessment purposes.
+In the repository you will also find a PDF containing the details & instructions for this assessment. Please read it carefully before starting.
 
 ## Projects
 - `ChipSoft.Assessment.Presentation` - Host app, server for API and static hosting of client.
@@ -14,7 +15,7 @@ This repository contains a sample Blazor (Server + WebAssembly) application used
 
 ## Prerequisites
 - .NET 10 SDK
-- Optional: Visual Studio 2022/2023, or VS Code with C# extensions
+- Optional: Visual Studio 2022/2026, or VS Code with C# extensions
 
 ## Local configuration
 - `ApiSettings:BaseAddress` must be configured for the Blazor client to communicate with the server. For local development you can set this to `https://localhost:7149/` (adjust port to what the server uses).
@@ -49,17 +50,4 @@ This repository contains a sample Blazor (Server + WebAssembly) application used
 - `.editorconfig` added to enforce consistent formatting and C# conventions.
 - `.gitattributes` added to normalize line endings and treat binary files correctly.
 - `.gitignore` updated to exclude build artifacts, IDE files, local SQLite files (`temp.db`), and other local-only files.
-- Do not commit local database files or secrets. Add any local-only test data to `.gitignore` if necessary.
-
-## CI / GitHub
-- Add a GitHub Actions workflow that runs `dotnet restore`, `dotnet build`, and `dotnet test` on push/PR.
-- Protect `main` branch and require the CI checks to pass before merging.
-
-## Contributing
-- Create feature branches and open PRs against `main`.
-- Add unit tests for new functionality.
-- Run `dotnet format` before committing to enforce `.editorconfig` rules.
-
-## Publishing
-- For deployment, configure a production database and set production configuration values via environment variables or a secrets store.
-- Ensure `ApiSettings:BaseAddress` used by the client points to the deployed server.
+- Pull requests are not evaluated, please send your solution as a ZIP file and omit any irrelevant files.

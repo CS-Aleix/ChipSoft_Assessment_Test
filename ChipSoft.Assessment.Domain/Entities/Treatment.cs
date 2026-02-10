@@ -1,4 +1,4 @@
-﻿using ChipSoft.Assessment.Domain.Enums;
+using ChipSoft.Assessment.Domain.Enums;
 using ChipSoft.Assessment.Domain.Interfaces;
 
 namespace ChipSoft.Assessment.Domain.Entities;
@@ -11,7 +11,6 @@ public class Treatment : BaseEntity, ITreatment
 
     public virtual double CalculateCost()
     {
-        // Implementation of cost calculation
         return 0.0;
     }
 }

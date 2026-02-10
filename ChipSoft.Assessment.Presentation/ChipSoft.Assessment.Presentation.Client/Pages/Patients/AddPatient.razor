@@ -1,4 +1,4 @@
-﻿@page "/patients/add"
+@page "/patients/add"
 @rendermode InteractiveAuto
 
 <h3>Add Patient</h3>
@@ -38,9 +38,9 @@
         <label class="form-label">Gender</label>
         <InputSelect class="form-control" @bind-Value="Model.Gender">
             <option value="">-- select --</option>
-            <option value="0">Male</option>
-            <option value="1">Female</option>
-            <option value="2">Other</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
         </InputSelect>
     </div>
 

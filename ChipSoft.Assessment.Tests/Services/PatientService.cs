@@ -1,4 +1,5 @@
-﻿using ChipSoft.Assessment.Application.Interfaces.Repositories;
+using ChipSoft.Assessment.Application.DTOs;
+using ChipSoft.Assessment.Application.Interfaces.Repositories;
 using ChipSoft.Assessment.Application.Services;
 using ChipSoft.Assessment.Domain.Entities;
 using ChipSoft.Assessment.Domain.Enums;
@@ -14,22 +15,23 @@ namespace ChipSoft.Assessment.Tests.Services
         }
 
         [Test]
-        public void AddPatient_ShouldAddPatient_WhenAddingCorrectPatient()
+        public async Task AddPatient_ShouldAddPatient_WhenAddingCorrectPatient()
         {
-            var patient = new Patient
+            var patient = new PatientCreationDTO
             {
                 FirstName = "John",
                 LastName = "Doe",
                 DateOfBirth = new DateOnly(1990, 1, 1),
-                Gender = Gender.Male
+                Gender = Gender.Male,
+                InsuranceNumber = "INS123456"
             };
 
-            var repository = Substitute.For<IPatientRepository>();            
+            var patientRepository = Substitute.For<IPatientRepository>();
 
-            var _sut = new PatientService(repository);
-            //_sut.AddPatientAsync(patient);
+            var _sut = new PatientService(patientRepository);
+            await _sut.AddPatientAsync(patient);
 
-            repository.Received(1).AddAsync(Arg.Any<Patient>(), Arg.Any<CancellationToken>());
+            await patientRepository.Received(1).AddAsync(Arg.Any<Patient>(), Arg.Any<CancellationToken>());
         }
     }
 }

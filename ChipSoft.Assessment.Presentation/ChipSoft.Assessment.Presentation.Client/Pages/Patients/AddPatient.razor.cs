@@ -24,7 +24,6 @@ public partial class AddPatient : ComponentBase
 
             if (response.IsSuccessStatusCode)
             {
-                // Navigate to root or patient list after successful creation
                 Navigation.NavigateTo("/");
                 return;
             }

@@ -6,7 +6,7 @@ This repository contains a sample Blazor (Server + WebAssembly) application used
 In the repository you will also find a PDF containing the details & instructions for this assessment. Please read it carefully before starting.
 
 ## Projects
-- `ChipSoft.Assessment.Presentation` - Host app, server for API and static hosting of client.
+- `ChipSoft.Assessment.Presentation` - Host app, server for API and static hosting of client. <-- Set this project as the startup project
 - `ChipSoft.Assessment.Presentation.Client` - Blazor WebAssembly client.
 - `ChipSoft.Assessment.Application` - Application services, DTOs, validators.
 - `ChipSoft.Assessment.Domain` - Domain entities and enums.
@@ -18,7 +18,7 @@ In the repository you will also find a PDF containing the details & instructions
 - Optional: Visual Studio 2022/2026, or VS Code with C# extensions
 
 ## Local configuration
-- `ApiSettings:BaseAddress` must be configured for the Blazor client to communicate with the server. For local development you can set this to `https://localhost:7149/` (adjust port to what the server uses).
+- `ApiSettings:BaseAddress` must be configured for the Blazor client to communicate with the server. For local development you can set this to `https://localhost:7053/` (adjust port to what the server uses).
 - Use `appsettings.Development.json` for local overrides. Do not commit secrets.
 - Use `dotnet user-secrets` or environment variables for sensitive values.
 
@@ -45,9 +45,3 @@ In the repository you will also find a PDF containing the details & instructions
   ```bash
   dotnet test
   ```
-
-## Repository hygiene and recommended files
-- `.editorconfig` added to enforce consistent formatting and C# conventions.
-- `.gitattributes` added to normalize line endings and treat binary files correctly.
-- `.gitignore` updated to exclude build artifacts, IDE files, local SQLite files (`temp.db`), and other local-only files.
-- Pull requests are not evaluated, please send your solution as a ZIP file and omit any irrelevant files.

@@ -39,21 +39,18 @@ public partial class AddAppointment : ComponentBase
             {
                 AvailableTreatmentTypes = await response.Content.ReadFromJsonAsync<List<TreatmentType>>() ?? new();
             }
-            //AvailableTreatmentTypes = await Http.GetFromJsonAsync<List<TreatmentType>>("api/treatments") ?? new();
 
             response = await client.GetAsync("api/patients");
             if (response.IsSuccessStatusCode)
             {
                 Patients = await response.Content.ReadFromJsonAsync<List<PatientOverviewDTO>>() ?? new();
             }
-            //Patients = await Http.GetFromJsonAsync<List<PatientOverviewDTO>>("api/patients") ?? new();
 
             response = await client.GetAsync("api/doctors");
             if (response.IsSuccessStatusCode)
             {
                 Doctors = await response.Content.ReadFromJsonAsync<List<DoctorOverviewDTO>>() ?? new();
             }
-            //Doctors = await Http.GetFromJsonAsync<List<DoctorOverviewDTO>>("api/doctors") ?? new();
         }
         catch (Exception ex)
         {
@@ -73,7 +70,6 @@ public partial class AddAppointment : ComponentBase
                 return;
             }
 
-            // Combine date and time inputs into DateTime for the DTO
             Model.StartTime = DateTime.Parse($"{StartDate:yyyy-MM-dd} {StartTime}");
             Model.EndTime = DateTime.Parse($"{EndDate:yyyy-MM-dd} {EndTime}");
 

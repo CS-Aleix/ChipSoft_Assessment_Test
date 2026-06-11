@@ -38,7 +38,6 @@ public class PatientsController : ControllerBase
         }
         catch (Exception ex)
         {
-            // In a real app inject ILogger and log the exception.
             return StatusCode(500, ex.Message);
         }
     }

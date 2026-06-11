@@ -14,24 +14,15 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddHttpClient("Default", (sp, client) =>
 {
-    //var nav = sp.GetRequiredService<NavigationManager>();
-    //client.BaseAddress = new Uri(nav.BaseUri);
     var config = sp.GetRequiredService<IConfiguration>();
     var baseAddress = config.GetValue<string>("ApiSettings:BaseAddress") ?? throw new InvalidOperationException("BaseAddress configuration is missing.");
 
     client.BaseAddress = new Uri(baseAddress);
 });
 
-//builder.Services.AddScoped(sp =>
-//{
-//    var nav = sp.GetRequiredService<NavigationManager>();
-//    return new HttpClient { BaseAddress = new Uri(nav.BaseUri) };
-//});
-
-// Register controllers so the API endpoint is available
 builder.Services.AddControllers();
 
-// existing registrations
+// Existing registrations
 builder.Services.AddInfrastructure();
 builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IDoctorService, DoctorService>();
@@ -42,7 +33,6 @@ builder.Services.AddScoped<ITreatmentService, TreatmentService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseWebAssemblyDebugging();
@@ -57,8 +47,6 @@ else
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-
-    // Checks if the database exists, if not, creates it based on the current model
     dbContext.Database.EnsureCreated();
 }
 
@@ -67,7 +55,6 @@ app.UseHttpsRedirection();
 
 app.UseAntiforgery();
 
-// Map API controllers
 app.MapControllers();
 
 app.MapStaticAssets();

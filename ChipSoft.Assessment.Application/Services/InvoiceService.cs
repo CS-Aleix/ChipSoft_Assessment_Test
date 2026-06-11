@@ -11,7 +11,6 @@ public class InvoiceService(IInvoiceRepository invoiceRepository) : IInvoiceServ
     {
         ArgumentNullException.ThrowIfNull(invoice);
 
-        // Basic validation
         if (invoice.Patient is null)
         {
             return new Result<Invoice>
@@ -30,10 +29,8 @@ public class InvoiceService(IInvoiceRepository invoiceRepository) : IInvoiceServ
             };
         }
 
-        // Calculate totals (side-effect free)
         var total = invoice.CalculateTotalAmount();
 
-        // Persist using repository
         var addResult = await invoiceRepository.AddAsync(invoice, cancellationToken).ConfigureAwait(false);
         if (!addResult.IsSuccess)
         {
